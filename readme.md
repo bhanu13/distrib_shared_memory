@@ -11,16 +11,24 @@ Linearizability involves per­process order preservation and real­time order pr
 ##Eventual Consistency
 Eventual consistency was implemented based on the Last­writer wins rule using R, W and timestamps. R, W were the no. of servers to receive an a response from before an operation was considered complete and an ACK to the client was returned.
  We could have used Logical vector timestamps, but since the various server instances were all on the same computer and had a common notion of time, we just used system time as timestamps. During a get operation, the server would retrieve the variable value from R other servers at random and select the value with the latest timestamp. Similarly, during the write operation, the server would update its own value and send a multicast to all other servers with the value and its associated timestamp. The receiving processes would update their values depending on the timestamp and send a response back to the server. The original server would then consider the write operation to be complete once it would receive values from W other servers.
----
 Logging
 We further added file logging abilities for each server to make use of a consistency model visualization tool. We logged the request and response on each server.
-Client Commands
-var range : a­z val range : 0­9
-Commands:
-id val: sets client_id = val
-connect val : connects client to server with server_id = val
-put var val : sends the server it is connected to a request to change the value of var  to val
-get var : requests the value of v ar from the server that the client is connected to delay time in ms : delay client process by time in ms milliseconds
-dump : sends a dump request to the server the client is connected to, making the
-server print the values of all its variables to stdout.
+
+
+### Client Commands
+ `var range : a-z` 
+
+ `val range : 0-9`
+
+### Commands:
+  `id val`: sets client_id = val
+
+  `connect val` : connects client to server with server_id = val
+
+  `put var val` : sends the server it is connected to a request to change the value of var  to val
+
+  `get var` : requests the value of v ar from the server that the client is connected to delay time in ms : delay client process by time in ms milliseconds
+
+  `dump` : sends a dump request to the server the client is connected to, making the server print the values of all its variables to stdout.
+
 Contributors: Bhanu Agarwal, bhanu13, Ankur Gupta, agupta67
