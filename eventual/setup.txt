@@ -1,0 +1,21 @@
+Eventual Consistency Implementation
+
+W - No. of servers to write to
+R - No. of servers to read from
+(latest timestamp value), last writer wins rule
+
+crash -> connect to next
+
+clients connected to crashed replica  -> connect to next server
+
+
+R, W, Quorums
+(Wait only for the first R responses)
+
+
+Message of the form
+var,val,timestamp
+
+
+
+Logical Timestamp(Vector Timestamp) - in case no notion of same system time

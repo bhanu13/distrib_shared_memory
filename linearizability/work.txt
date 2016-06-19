@@ -1,0 +1,6 @@
+WORK
+
+02/04/16
+- Implement Linearizability on Shared Memory
+- Implement Eventual Consistency
+- Use Semaphores to protect sockets.

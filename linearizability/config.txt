@@ -1,0 +1,11 @@
+Min Delay: 500 ms
+Max Delay: 5000 ms
+
+Server Start Port: 127.0.0.1 5000
+
+Replica Server Port: 5000 + server_id
+MAX_CLIENTS: 5
+MAX_REPLICAS: 9
+
+These are macros in the constants file that can be changed as per usage.
+/log - contains the logs of each server
